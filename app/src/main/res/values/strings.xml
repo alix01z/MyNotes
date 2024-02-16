@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Note App Kotlin-MVVM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notes_head">Notes</string>
+    <string name="pinned_notes">Pinned</string>
+    <string name="upcoming_notes">Upcoming</string>
+    <string name="empty_notes">Click + to add notes</string>
+</resources>
