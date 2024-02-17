@@ -51,7 +51,7 @@ class HomeFragment : Fragment() , CardClickListener {
             //init RecyclerView
             bingdingHomeF.rvPinnedNotes.adapter = PinnedRvAdapter(data , this)
             bingdingHomeF.rvPinnedNotes.layoutManager = LinearLayoutManager(
-                context, LinearLayoutManager.HORIZONTAL,
+                context, LinearLayoutManager.VERTICAL,
                 false
             )
         }
