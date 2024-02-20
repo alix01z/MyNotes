@@ -10,10 +10,17 @@ class MyRepository
 constructor(appDatabase: AppDatabase){
     private val roomDao = appDatabase.roomDao()
 
-    fun insertNote(noteModel: NoteEntity) {
-        roomDao.insertNote(noteModel)
+    fun insertNote(noteEntity: NoteEntity) {
+        roomDao.insertNote(noteEntity)
     }
     fun getAllNotes():Flow<List<NoteEntity>> {
         return roomDao.getAllNotes()
+    }
+    fun updateNote(noteEntity: NoteEntity){
+        roomDao.updateNote(noteEntity)
+    }
+
+    fun deleteNote(noteEntity: NoteEntity){
+        roomDao.deleteNote(noteEntity)
     }
 }

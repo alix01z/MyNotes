@@ -3,7 +3,6 @@ package com.alix01z.noteappkotlin_mvvm.ui
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -63,13 +62,12 @@ class SingleNoteFragment : Fragment() {
                     if (this.edtxContent.text.isNullOrBlank())
                         Snackbar.make(this.coordSingleNote , "Please enter your note!" , Snackbar.LENGTH_SHORT).show()
                     else{
-                        val title = this.edtxTitle.text.toString()
-                        val content = this.edtxContent.text.toString()
-                        val color = noteColor
+                        noteEntity.title = this.edtxTitle.text.toString()
+                        noteEntity.content = this.edtxContent.text.toString()
+                        noteEntity.color = noteColor
+                        noteEntity.pinned = false
 
-                        val noteModel = NoteEntity(0 , title , content , color , false)
-
-                        viewModel.insertNoteToDB(noteModel)
+                        viewModel.updateNote(noteEntity)
                         view.findNavController().navigate(R.id.action_singleNoteFragment_to_homeFragment)
                         //Or Navigation.findNacController(view).navigate(.....)
                     }

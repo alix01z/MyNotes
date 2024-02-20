@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.PopupMenu
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -64,5 +65,20 @@ class HomeFragment : Fragment() , CardClickListener {
     override fun onItemClickListener(noteEntity: NoteEntity) {
         val bundleSendData = bundleOf("selected_note" to noteEntity)
         Navigation.findNavController(bingdingHomeF.root).navigate(R.id.action_homeFragment_to_singleNoteFragment  , bundleSendData)
+    }
+
+    override fun onOptionClickListener(imgvItemOption: View, noteEntity: NoteEntity) {
+        val popupMenu = PopupMenu(requireActivity() , imgvItemOption)
+        popupMenu.inflate(R.menu.item_option_menu)
+        popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener {
+            when(it.itemId){
+                R.id.delete_menu_item -> {
+                    myViewModel.deleteNote(noteEntity)
+                    true
+                }
+                else -> false
+            }
+        })
+        popupMenu.show()
     }
 }

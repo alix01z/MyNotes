@@ -13,16 +13,16 @@ data class NoteEntity(
     val id:Int,
 
     @ColumnInfo("note_title")
-    val title: String?,
+    var title: String?,
 
     @ColumnInfo("note_content")
-    val content: String?,
+    var content: String?,
 
     @ColumnInfo("note_color")
-    val color: String?,
+    var color: String?,
 
     @ColumnInfo("note_pinned")
-    val pinned:Boolean
+    var pinned:Boolean
 ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),

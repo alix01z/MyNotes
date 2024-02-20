@@ -47,6 +47,9 @@ class PinnedRvAdapter(private var pinnedNoteList: MutableList<NoteEntity> , priv
             binding.cvPinnedItems.setOnClickListener {
                 listener.onItemClickListener(noteEntity)
             }
+            binding.imgvItemOptionMenu.setOnClickListener {
+                listener.onOptionClickListener(it , noteEntity)
+            }
             binding.executePendingBindings()
         }
 

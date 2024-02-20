@@ -8,7 +8,6 @@ import com.alix01z.noteappkotlin_mvvm.repository.MyRepository
 import com.alix01z.noteappkotlin_mvvm.room.entities.NoteEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -36,6 +35,18 @@ constructor(private val repository: MyRepository) : ViewModel() {
             repository.getAllNotes().collect(){
                 data.postValue(it)
             }
+        }
+    }
+
+    fun updateNote(noteEntity: NoteEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateNote(noteEntity)
+        }
+    }
+
+    fun deleteNote(noteEntity: NoteEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteNote(noteEntity)
         }
     }
 }
