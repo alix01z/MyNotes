@@ -70,15 +70,15 @@ class HomeFragment : Fragment() , CardClickListener {
     override fun onOptionClickListener(imgvItemOption: View, noteEntity: NoteEntity) {
         val popupMenu = PopupMenu(requireActivity() , imgvItemOption)
         popupMenu.inflate(R.menu.item_option_menu)
-        popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener {
-            when(it.itemId){
+        popupMenu.setOnMenuItemClickListener {
+            when (it.itemId) {
                 R.id.delete_menu_item -> {
                     myViewModel.deleteNote(noteEntity)
                     true
                 }
                 else -> false
             }
-        })
+        }
         popupMenu.show()
     }
 }
