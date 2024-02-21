@@ -33,6 +33,7 @@ class SingleNoteFragment : Fragment() {
         getDataFromBundle()
         return bindingSingleF.root
     }
+    //This fun is made because .getParcelable is deprecated
     inline fun <reified T : Parcelable> Bundle.parcelable(key: String): T? = when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> getParcelable(key, T::class.java)
         else -> @Suppress("DEPRECATION") getParcelable(key) as? T
