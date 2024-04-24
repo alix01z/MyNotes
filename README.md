@@ -2,11 +2,6 @@
 
 Simplify note-taking and stay organized with this user-friendly note-taking app.
 
-### ScreenShots
-
-# About the Project
-
-
 
 # Features
 Techs & Tools used in this project:
